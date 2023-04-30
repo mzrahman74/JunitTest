@@ -49,4 +49,17 @@ public class BankAccountParallelExecutionTest {
         assertEquals(500, bankAccount.getBalance());
 
     }
+    @Test
+    @DisplayName("Withdraw 500 dollar")
+    public void testWithdraw(BankAccount bankAccount) {
+        try {
+            bankAccount.deposit(1000);
+            bankAccount.withdraw(500);
+            assertEquals(500, bankAccount.getBalance());
+      System.out.println(bankAccount.getBalance());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -20,6 +20,12 @@ public class BankAccountParameterizedTest {
 
     }
     @ParameterizedTest
+    @ValueSource(ints = {5000, 4000, 8000, 10000})
+    public void testDepositTest_01(int amount, BankAccount bankAccount) {
+        bankAccount.deposit(amount);
+        assertEquals(amount, bankAccount.getBalance() );
+    }
+    @ParameterizedTest
     @EnumSource(value = DayOfWeek.class, names = {"TUESDAY", "THURSDAY"})
     public void testDayWeek(DayOfWeek day) {
         assertTrue(day.toString().startsWith("T"));
@@ -33,6 +39,25 @@ public class BankAccountParameterizedTest {
         bankAccount.setHolderName(name);
         assertEquals(amount, bankAccount.getBalance());
         assertEquals(name, bankAccount.getHolderName());
+
+    }
+    @ParameterizedTest
+    @CsvFileSource(resources = "deposit.csv")
+    public void depositAndNameTest_01(double amount, String name, BankAccount bankAccount) {
+        bankAccount.deposit(amount);
+        bankAccount.setHolderName(name);
+        assertEquals(amount, bankAccount.getBalance());
+        assertEquals(name, bankAccount.getHolderName());
+
+
+    }
+    @ParameterizedTest
+    @CsvFileSource(resources = "2ndDeposit.csv")
+    public void depositAndNameTest_02(double amount, String name, BankAccount bankAccount){
+        bankAccount.deposit(amount);
+        bankAccount.setHolderName(name);
+        assertEquals(amount, bankAccount.getBalance());
+        assertEquals(name,bankAccount.getHolderName());
 
     }
 

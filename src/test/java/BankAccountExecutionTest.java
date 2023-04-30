@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -18,5 +15,12 @@ public class BankAccountExecutionTest {
     public void testDeposit() {
         bankAccount.deposit(500);
         assertEquals(500, bankAccount.getBalance());
+    }
+    @Test
+    @Order(3)
+    @DisplayName("Deposit 1000 dollar")
+    public void testDepositSecond() {
+        bankAccount.deposit(1000);
+        assertEquals(1200, bankAccount.getBalance());
     }
 }
