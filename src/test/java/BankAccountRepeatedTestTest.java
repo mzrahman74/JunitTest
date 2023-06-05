@@ -22,4 +22,12 @@ public class BankAccountRepeatedTestTest {
         System.out.println("Nr:" + repetitionInfo.getCurrentRepetition());
 
     }
+    @RepeatedTest(4)
+    @DisplayName("Deposit 1000 successfully")
+    public void depositTestRepetition(BankAccount bankAccount, RepetitionInfo repetitionInfo) {
+        bankAccount.deposit(1000);
+        assertEquals(1000, bankAccount.getBalance());
+        System.out.println("Nr:" + repetitionInfo.getCurrentRepetition());
+
+    }
 }

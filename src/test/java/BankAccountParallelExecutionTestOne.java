@@ -20,5 +20,17 @@ public class BankAccountParallelExecutionTestOne {
         bankAccount.deposit(500);
         assertEquals(500, bankAccount.getBalance());
     }
+    @Test
+    @DisplayName("Deposit 600 successfully")
+    public void depositThree(BankAccount bankAccount) {
+        bankAccount.deposit(600);assertEquals(600, bankAccount.getBalance());
+    }
+    @Test
+    @DisplayName("Deposit 1000 successfully")
+    public void depositFour(BankAccount bankAccount) {
+        bankAccount.deposit(1000);
+        assertEquals(1000, bankAccount.getBalance());
+
+    }
 
 }

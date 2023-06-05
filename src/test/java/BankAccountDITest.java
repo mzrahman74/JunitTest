@@ -14,4 +14,12 @@ public class BankAccountDITest {
         assertEquals(500, bankAccount.getBalance());
 
     }
+    @Test
+    @DisplayName("Deposit 1000 and withdraw 500")
+    public void testDepositWithdraw(BankAccount bankAccount) {
+        bankAccount.deposit(1000);
+        bankAccount.withdraw(500);
+        assertEquals(500, bankAccount.getBalance());
+
+    }
 }

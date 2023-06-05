@@ -60,5 +60,14 @@ public class BankAccountParameterizedTest {
         assertEquals(name,bankAccount.getHolderName());
 
     }
+    @ParameterizedTest
+    @CsvFileSource(resources = "3rdDeposit.csv")
+    public void depositAndNameTest_03(double amount, String name, BankAccount bankAccount ) {
+        bankAccount.deposit(amount);
+        bankAccount.setHolderName(name);
+        assertEquals(amount, bankAccount.getBalance() );
+        assertEquals(name, bankAccount.getHolderName());
+
+    }
 
 }

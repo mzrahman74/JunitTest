@@ -32,6 +32,18 @@ public class CalculateMethodsMockitoTest {
         assertEquals(6.0, calculatorMethod.divide(18, 3));
 
     }
+    @Test
+    @DisplayName("Divide 9 by 3 and the result is 3")
+    public void test_03() {
+        Mockito.when(calculatorMethod.divide(9, 3)).thenReturn(3.0);
+        assertEquals(3, calculatorMethod.divide(9, 3));
+    }
+    @Test
+    @DisplayName("Divide 10 by 2 and the result is 5")
+    public void test_04() {
+        Mockito.when(calculatorMethod.divide(10, 2)).thenReturn(5.0);
+        assertEquals(5.0, calculatorMethod.divide(10, 2));
+    }
 }
 
 
