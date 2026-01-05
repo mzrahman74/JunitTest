@@ -9,12 +9,7 @@ public class BankAccountConditionalTest {
 
     }
     @Test
-    @EnabledOnOs({OS.WINDOWS})
-    public void testWindows() {
-
-    }
-    @Test
-    @EnabledOnJre({JRE.JAVA_19})
+    @EnabledOnJre({JRE.JAVA_17})
     public void testJRE() {
 
     }
